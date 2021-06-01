@@ -52,6 +52,11 @@ p {
   max-width: 24%;
   margin: 0;
 }
+.homepage__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 .card {
   width: 350px;
@@ -61,6 +66,9 @@ p {
   align-items: center;
   margin: 15px;
 }
+.card__link {
+  text-decoration: none;
+}
 .card__image {
   border-radius: 50%;
   height: 250px;
@@ -68,13 +76,11 @@ p {
   overflow: hidden;
   object-fit: cover;
   margin: 15px auto;
-  cursor: pointer;
 }
 .card__title {
   color: #d3573c;
   font-size: 2rem;
   text-align: center;
-  cursor: pointer;
 }
 .card__location {
   color: #901c1c;

@@ -1,8 +1,12 @@
-.homepage {
-
+.homepage {    
     
     &__title {
         max-width: 24%;
         margin: 0;
+    }
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 }

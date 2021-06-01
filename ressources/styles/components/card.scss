@@ -7,20 +7,21 @@
     align-items: center;
     margin: 15px;
 
+    &__link  {
+        text-decoration: none;
+    }
     &__image {
         border-radius: 50%;
         height: 250px;
         width: 250px;
         overflow: hidden;
         object-fit: cover;
-        margin: 15px auto;
-        cursor: pointer;      
+        margin: 15px auto;           
     }
     &__title {
         color: color.$secondary-color;
         font-size: 2rem;
         text-align: center;
-        cursor: pointer;
     }
     &__location {
         color: color.$primary-color;
