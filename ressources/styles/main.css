@@ -6,7 +6,7 @@
   font-weight: 500;
   padding: 3px 5px;
   text-decoration: none;
-  margin: 5 5px;
+  margin: 5px 5px;
 }
 .filter:hover {
   background-color: #901c1c;
@@ -29,6 +29,10 @@
 .main-header__logo {
   max-height: 80px;
   align-self: flex-start;
+}
+.main-header__nav {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .anchor {
