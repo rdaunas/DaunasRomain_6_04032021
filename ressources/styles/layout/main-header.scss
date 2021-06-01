@@ -1,0 +1,14 @@
+
+
+.main-header {
+    display: flex;
+    align-items: center;
+    width: 75%;
+
+    &__logo {
+        max-height: 80px;
+        align-self: flex-start;
+        
+    }
+
+}

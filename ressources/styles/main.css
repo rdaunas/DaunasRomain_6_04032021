@@ -1,0 +1,39 @@
+.filter {
+  border: 1px solid #bbb8b8;
+  color: #901c1c;
+  border-radius: 12px;
+  background-color: #fafafa;
+  font-weight: 500;
+  padding: 3px 5px;
+  text-decoration: none;
+  margin: 5 5px;
+}
+.filter:hover {
+  background-color: #901c1c;
+  color: #fafafa;
+}
+.filter:focus {
+  background-color: #901c1c;
+  color: #fafafa;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  width: 75%;
+}
+.main-header__logo {
+  max-height: 80px;
+  align-self: flex-start;
+}
+
+.anchor {
+  position: fixed;
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */
