@@ -8,6 +8,11 @@
   text-decoration: none;
   margin: 5px 5px;
 }
+@media only screen and (max-width: 600px) {
+  .filter {
+    font-size: 0.75rem;
+  }
+}
 .filter:hover {
   background-color: #901c1c;
   color: #fafafa;
@@ -34,9 +39,20 @@ p {
   align-items: center;
   width: 75%;
 }
+@media only screen and (max-width: 600px) {
+  .main-header {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
 .main-header__logo {
   max-height: 80px;
   align-self: flex-start;
+}
+@media only screen and (max-width: 600px) {
+  .main-header__logo {
+    max-height: 40px;
+  }
 }
 .main-header__nav {
   display: flex;
@@ -51,6 +67,18 @@ p {
 .homepage__title {
   max-width: 24%;
   margin: 0;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #901c1c;
+  font-weight: 500;
+}
+@media only screen and (max-width: 600px) {
+  .homepage__title {
+    font-size: 1rem;
+    top: 20px;
+    max-width: 100%;
+  }
 }
 .homepage__content {
   display: flex;
@@ -60,7 +88,6 @@ p {
 
 .card {
   width: 350px;
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
