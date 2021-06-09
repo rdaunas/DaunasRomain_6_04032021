@@ -18,8 +18,13 @@ for(let filterElement of filters){
 }
 
 //Filter proxy 
-function filtering(filter) {  
-    photographeFiltering(filter);
+function filtering(filter) {
+    if(window.location.hash == filter){
+        photographList = [];
+        window.location.hash.replace(`#${window.location.hash}`,"");
+    }else {
+        photographeFiltering(filter);
+    }    
     listRender();
 }
 

@@ -12,24 +12,25 @@
 <body>
     <header class="main-header">
         <a href="index.html"><img class="main-header__logo" alt="" src="ressources/images/logo.png" /></a>
-        <a href="" class="anchor">Passer au contenu</a>
+        <a href="" class="anchor" onclick="toTop()">Passer au contenu</a>
         <nav class="main-header__nav">
-            <a href="#" class="filter">#Portrait</a>
-            <a href="#" class="filter">#Art</a>
-            <a href="#" class="filter">#Fashion</a>
-            <a href="#" class="filter">#Architecture</a>
-            <a href="#" class="filter">#Travel</a>
-            <a href="#" class="filter">#Sport</a>
-            <a href="#" class="filter">#Animals</a>
-            <a href="#" class="filter">#Events</a>
+            <a href="#portrait" class="filter">#Portrait</a>
+            <a href="#art" class="filter">#Art</a>
+            <a href="#fashion" class="filter">#Fashion</a>
+            <a href="#architecture" class="filter">#Architecture</a>
+            <a href="#travel" class="filter">#Travel</a>
+            <a href="#sport" class="filter">#Sport</a>
+            <a href="#animals" class="filter">#Animals</a>
+            <a href="#events" class="filter">#Events</a>
         </nav>
     </header>
-    <main class="homepage">
+    <main class="homepage" id="main-content">
         <h1 class="homepage__title">Nos photographes</h1>
         <div class="homepage__content">
         </div>       
     </main>
 <script src="./ressources/scripts/homepage.js" type="module"></script>
 <script src="./ressources/scripts/photographe.js" type="module"></script>
+<script src="./ressources/scripts/scroll.js" type="module"></script>
 </body>
 </html>

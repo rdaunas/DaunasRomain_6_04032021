@@ -1,4 +1,3 @@
-
 .filter {
   border: 1px solid #bbb8b8;
   color: #901c1c;
@@ -63,6 +62,15 @@ p {
 .anchor {
   position: fixed;
   display: none;
+  color: black;
+  border-radius: 8px;
+  background-color: #d3573c;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px;
+  top: 20px;
+  left: calc(50% - 110px);
 }
 
 .homepage__title {
