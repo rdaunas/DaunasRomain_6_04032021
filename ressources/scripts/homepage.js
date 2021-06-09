@@ -7,7 +7,8 @@ const photographContainer = document.querySelector(".homepage__content");
 let photograhData= [];
 //Store les data des photographes à afficher
 let photographList = [];
-getAllPhotograph();
+//getAllPhotograph();
+filtering("all");
 
 //Event Listener on filters
 let filters = document.querySelectorAll(".filter");
@@ -19,9 +20,12 @@ for(let filterElement of filters){
 
 //Filter proxy 
 function filtering(filter) {
+    if(filter == "all" || window.location.hash == ""){
+        getAllPhotograph();
+    }
     if(window.location.hash == filter){
         photographList = [];
-        window.location.hash.replace(`#${window.location.hash}`,"");
+        window.location.hash = "";
     }else {
         photographeFiltering(filter);
     }    
