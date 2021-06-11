@@ -1,0 +1,23 @@
+@use "../utils/color.scss";
+
+.button {
+
+
+    &--contact {
+        border-radius: 5px;
+        background-color: color.$primary-color;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 23px 20px;
+        max-height: 70px;
+        border: none;
+
+        @media only screen and (max-width: 600px) {
+            position: fixed;
+            bottom: 30px;
+            left: calc(50% - 68px);
+            padding: 10px;
+        }   
+    }
+}

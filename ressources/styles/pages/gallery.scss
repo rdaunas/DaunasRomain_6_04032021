@@ -1,0 +1,36 @@
+@use "../utils/color.scss";
+
+.gallery {
+    
+    margin: 50px;
+
+    &__item {
+
+        margin: 15px;
+        margin-top: 100px;
+        max-width: 350px;
+        border-radius: 5px;
+        overflow: hidden;
+
+        &__image {
+            max-height: 300px;
+            width: 100%;
+            object-fit: cover;
+
+            @media only screen and (max-width: 600px) {
+                max-height: 190px;
+            }
+        }
+        &__details {
+            color: color.$primary-color;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+
+            @media only screen and (max-width: 600px) {
+                font-size: 0.75rem;
+            }
+        }
+    }
+    
+}
