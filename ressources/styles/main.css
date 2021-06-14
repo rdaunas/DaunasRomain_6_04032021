@@ -228,6 +228,9 @@ body {
   }
 }
 
+.button {
+  cursor: pointer;
+}
 .button--contact {
   border-radius: 5px;
   background-color: #901c1c;
@@ -281,6 +284,50 @@ body {
   .sticky {
     display: none;
   }
+}
+
+.modal {
+  background-color: #DB8876;
+  width: 670px;
+  padding: 25px;
+  position: fixed;
+  top: 50px;
+  left: calc(50% - 335px);
+  display: none;
+  border-radius: 5px;
+}
+.modal__title {
+  font-size: 4rem;
+}
+.modal__close {
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 5rem;
+}
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+.modal__form__input {
+  border-radius: 5px;
+  height: 70px;
+}
+.modal__form__label {
+  font-size: 2.25rem;
+  color: #312E2E;
+}
+.modal__form__submit {
+  width: 170px;
+  background-color: #901c1c;
+  border-radius: 5px;
+  border: none;
+  margin-top: 50px;
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px;
 }
 
 /*# sourceMappingURL=main.css.map */
