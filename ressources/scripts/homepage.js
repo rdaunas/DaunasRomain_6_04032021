@@ -1,37 +1,32 @@
 import {Photograph} from'./photographe.js';
 
-
 const photographContainer = document.querySelector(".homepage__content");
 
 //Store data de tout les photographes
 let photograhData= [];
 //Store les data des photographes à afficher
 let photographList = [];
-//getAllPhotograph();
-filtering("all");
 
-//Event Listener on filters
-let filters = document.querySelectorAll(".filter");
-for(let filterElement of filters){
-    filterElement.addEventListener('click', () => {
-        filtering(filterElement.innerText.toLowerCase())
-    })
-}
+let filterOn = false;
+//Loading all photograph
+filtering();
+
+//event listener sur le changement de # de l'url
+window.addEventListener("hashchange", filtering);
 
 //Filter proxy 
-function filtering(filter) {
-    if(filter == "all" || window.location.hash == ""){
+function filtering() {
+    let filter = window.location.hash;
+    if(filter == "" || filter =="#"){
         getAllPhotograph();
+        filterOn = false;
     }
-    if(window.location.hash == filter){
-        photographList = [];
-        window.location.hash = "";
-    }else {
+    else {
         photographeFiltering(filter);
+        filterOn = true;
     }    
     listRender();
 }
-
 //Render photograh
 function listRender() {
     //delete all photograph
@@ -68,7 +63,7 @@ function listRender() {
     }
 
 }
-//TODO
+
 // filter all photograph into a list matching filter tag
 function photographeFiltering(filter) {
     //check each photograph
@@ -83,7 +78,7 @@ function photographeFiltering(filter) {
         }
         return false;        
     })
-    console.log(photographList);
+
 } 
 
 //loop through json to instantiate Photograh object
