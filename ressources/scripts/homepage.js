@@ -50,7 +50,7 @@ function listRender() {
         }      
         photographContainer.insertAdjacentHTML("beforeend",`
             <div class="card">
-            <a href="/ressources/profiles/profile.html?${photograph._id}" class="card__link">
+            <a href="/DaunasRomain_6_04032021/ressources/profiles/profile.html?${photograph._id}" class="card__link">
                 <img class="card__image" src="./ressources/images/Photographers ID Photos/${photograph._portrait}"/>
                 <h2 class="card__title">${photograph._name}</h2>
             </a>            
