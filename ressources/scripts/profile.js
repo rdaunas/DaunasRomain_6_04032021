@@ -59,14 +59,14 @@ function renderGallery(){
     }
 }
 
-fetch("../data/FishEyeData.json")
+fetch("ressources/data/FishEyeData.json")
     .then(response => response.json())  //transforme la reponse en json
     .then(data => data.photographers)   
     .then( (jsonData) => {              
-        photographInfo = jsonData.find( element => element.id = window.location.search.substring(1));
+        photographInfo = jsonData.find( element => element.id == window.location.search.substring(1));
         let photographtags ="";
         for(let tag of photographInfo.tags){
-        photographtags += `<a class="filter">${tag}</a>`
+        photographtags += `<a class="filter">#${tag}</a>`
         }
         profile.insertAdjacentHTML('afterbegin',
                             ` <div class="card--profile__desc">
@@ -76,13 +76,13 @@ fetch("../data/FishEyeData.json")
                             <div class="card__tags">${photographtags}</div>
                             </div>            
                             <button class="button--contact">Contactez-moi</button>
-                            <img src="../images/Photographers ID Photos/${photographInfo.portrait}" class="card__image card__image--profile"/>
+                            <img src="ressources/images/Photographers ID Photos/${photographInfo.portrait}" class="card__image card__image--profile"/>
                             ` );
         modalSetUp();
 });
 
 
-fetch("../data/FishEyeData.json")
+fetch("ressources/data/FishEyeData.json")
     .then(response => response.json())  //transforme la reponse en json
     .then(data => data.media)   //extrait les media des données json
     .then( (jsonData) => {              //crée un objet Photograph pour chaque photograh des données json

@@ -13,17 +13,26 @@ export class Video {
     }
 
     render(parent) {
-        parent.insertAdjacentHTML("beforeend",`
-        <div class="gallery__item">
-        <video class="gallery__item__image">
-            <source src="../images/Mimi/${this._video}"
-            Sorry, your browser doesn't support embedded videos.
-        </video>
-        <div class="gallery__item__details">
-            <p>${this._title}</p>
-            <p>${this._like} <i class="fas fa-heart"></i></i></p>
-        </div>                
-    </div>
-    `); 
+
+        let photographer;
+        fetch("ressources/data/FishEyeData.json")
+            .then(response => response.json())  //transforme la reponse en json
+            .then(data => data.photographers)   
+            .then( jsonData => { 
+                photographer = jsonData.find( element => element.id == window.location.search.substring(1));
+                let folderName = photographer.name.split(" ")
+                parent.insertAdjacentHTML("beforeend",`
+                        <div class="gallery__item">
+                        <video class="gallery__item__image">
+                            <source src="ressources/images/${folderName[0]}/${this._video}"
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        <div class="gallery__item__details">
+                            <p>${this._title}</p>
+                            <p>${this._like} <i class="fas fa-heart"></i></i></p>
+                        </div>                
+                        </div>
+                `); 
+        });
     }
 }
