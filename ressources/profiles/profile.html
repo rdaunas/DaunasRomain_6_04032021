@@ -16,14 +16,7 @@
     </header>
     <main>
         <section id="profile" class="card--profile">
-            <div class="card--profile__desc">
-                <h1 class="card__title card__title--profile">Mimi Keel</h1>
-                <p class="card__location card__location--profile">London, UK</p>
-                <p class="card__bio">Voir le beau dans le quotidien</p>
-                <div class="card__tags"><a class="filter">#portrait</a><a class="filter">#events</a><a class="filter">#travel</a><a class="filter">#animals</a></div>
-            </div>            
-            <button class="button--contact">Contactez-moi</button>
-            <img src="../images/Photographers ID Photos/MimiKeel.jpg" class="card__image card__image--profile"/>
+            
         </section>
 
         <section id="trier">
@@ -48,18 +41,18 @@
         <span class="modal__close">X</span>
         <form class="modal__form">
             <label class="modal__form__label">Prénom</label>
-            <input type="text" class="modal__form__input"/>
+            <input type="text" class="modal__form__input" id="prenom"/>
             <label class="modal__form__label">Nom</label>
-            <input type="text" class="modal__form__input"/>
+            <input type="text" class="modal__form__input" id="nom"/>
             <label class="modal__form__label">Email</label>
-            <input type="email" class="modal__form__input"/>
+            <input type="email" class="modal__form__input" id="mail"/>
             <label class="modal__form__label">Votre message</label>
-            <input type="text" class="modal__form__input"/>
+            <input type="text" class="modal__form__input" id="message"/>
             <input type="submit" class="modal__form__submit"/>
         </form>
 
-    </section>
-    <script type="module" src="../scripts/modal.js"></script>
+    </section>    
     <script type="module" src="../scripts/profile.js"></script>
+    <script type="module" src="../scripts/modal.js"></script>
 </body>
 </html>

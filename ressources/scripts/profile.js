@@ -1,10 +1,12 @@
 import {Factory} from'../scripts/Factory.js';
+import { modalSetUp } from './modal.js';
 
+const profile = document.querySelector("#profile");
 const gallery = document.querySelector("#gallery");
 const trier = document.querySelector("#image-filter");
 //List of media
 let mediaList = []
-
+let photographInfo = 
 
 trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
@@ -56,6 +58,30 @@ function renderGallery(){
         media.render(gallery);
     }
 }
+
+fetch("../data/FishEyeData.json")
+    .then(response => response.json())  //transforme la reponse en json
+    .then(data => data.photographers)   
+    .then( (jsonData) => {              
+        photographInfo = jsonData.find( element => element.id = window.location.search.substring(1));
+        let photographtags ="";
+        for(let tag of photographInfo.tags){
+        photographtags += `<a class="filter">${tag}</a>`
+        }
+        profile.insertAdjacentHTML('afterbegin',
+                            ` <div class="card--profile__desc">
+                            <h1 class="card__title card__title--profile">${photographInfo.name}</h1>
+                            <p class="card__location card__location--profile">${photographInfo.city},${photographInfo.country}</p>
+                            <p class="card__bio">${photographInfo.tagline}</p>
+                            <div class="card__tags">${photographtags}</div>
+                            </div>            
+                            <button class="button--contact">Contactez-moi</button>
+                            <img src="../images/Photographers ID Photos/${photographInfo.portrait}" class="card__image card__image--profile"/>
+                            ` );
+        modalSetUp();
+});
+
+
 fetch("../data/FishEyeData.json")
     .then(response => response.json())  //transforme la reponse en json
     .then(data => data.media)   //extrait les media des données json
@@ -65,6 +91,5 @@ fetch("../data/FishEyeData.json")
                 mediaList.push(Factory.createMedia(media));
             }
         }
-        console.log(mediaList);
         renderGallery();
     });
