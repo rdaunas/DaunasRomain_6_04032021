@@ -30,13 +30,13 @@
             
         </section>
         <div class="sticky">
-            <p>297 081 <i class="fas fa-heart"></i></i></p>
+            <p class="like-number">297 081 </p><i class="fas fa-heart"></i>
             <p>300€ / jour</p>
         </div>
     </main>
     <section class="modal">
         <h2 class="modal__title">Contactez-moi <br/> Mimi Keel</h2>
-        <span class="modal__close">X</span>
+        <i class="fas fa-times modal__close"></i>
         <form class="modal__form">
             <label class="modal__form__label">Prénom</label>
             <input type="text" class="modal__form__input" id="prenom"/>
@@ -48,8 +48,18 @@
             <input type="text" class="modal__form__input" id="message"/>
             <input type="submit" class="modal__form__submit"/>
         </form>
-
-    </section>    
+    </section>  
+    <section id="lightbox" class="lightbox">
+        <div class="lightbox__container">
+            <i class="fas fa-times fa-7x lightbox__close"></i>
+            <i class="fas fa-chevron-left fa-7x lightbox__button" id="lightbox__previous"></i>
+            <div class="lightbox__content">
+                <img src="ressources/images/Marcel/Architecture_Corner_Room.jpg" />
+            </div>
+            <i class="fas fa-chevron-right fa-7x lightbox__button" id="lightbox__next"></i>
+        </div>
+        
+    </section>  
     <script type="module" src="ressources/scripts/profile.js"></script>
     <script type="module" src="ressources/scripts/modal.js"></script>
 </body>

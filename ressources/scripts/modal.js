@@ -25,7 +25,13 @@ form.addEventListener('submit', (e) => {
     messsage.style.border = "none";
     email.style.border = "none";
     if(textValidation()) {
-        alert("Message envoyé.")
+        alert("Message envoyé.");
+        console.log(`
+        Prenom: ${firstName.value}
+        Nom: ${lastName.value}
+        Email: ${email.value}
+        Message: ${messsage.value}
+        `);
        document.querySelector(".modal").style.display ="none";
        lastName.value ="";
        firstName.value ="";

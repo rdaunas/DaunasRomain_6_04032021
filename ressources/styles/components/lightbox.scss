@@ -1,0 +1,36 @@
+@use "../utils/color.scss";
+
+.lightbox {
+
+    background-color: rgba(128, 128, 128, 0.507);
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    color: color.$primary-color;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    display: none;
+
+    &__container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__button {
+        margin: 50px;
+    }
+    &__content {
+        width: 1050px;
+        height: 800px;
+        overflow: hidden;
+    }
+    &__close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+
+}

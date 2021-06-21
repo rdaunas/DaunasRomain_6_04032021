@@ -4,13 +4,49 @@ import { modalSetUp } from './modal.js';
 const profile = document.querySelector("#profile");
 const gallery = document.querySelector("#gallery");
 const trier = document.querySelector("#image-filter");
+
+const lightbox = document.querySelector("#lightbox");
+const lightboxContent = document.querySelector(".lightbox__content")
 //List of media
-let mediaList = []
-let photographInfo = 
+let mediaList = [];
+let photographInfo;
+let currentIndex = 0;
+
 
 trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
-})
+});
+
+
+
+//LOGHTBOX
+document.querySelector(".lightbox__close").addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+
+function lightboxClick() {
+    let allImage = document.querySelectorAll(".gallery__item__element");
+    for (let image of allImage) { 
+        image.addEventListener("click", (event) => {
+            lightbox.style.display = "block";
+            lightboxContent.innerHTML = image.innerHTML;
+            //TODO SET CURRENT INDEX
+            currentIndex = event.target.id;
+    })
+};
+}
+document.querySelector("#lightbox__previous").addEventListener("click", () => {
+    currentIndex -=1;
+    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox();
+});
+document.querySelector("#lightbox__next").addEventListener("click", () => {
+    currentIndex +=1;
+    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox();
+});
+
+
+//FILTERING
 function filterMedia(filter) {
     if(filter == "popularity"){mediaList.sort(compareLike);}
     if(filter == "date"){mediaList.sort(compareDate);}
@@ -48,17 +84,44 @@ function compareDate(a, b) {
       }
       return 0;  
 }
+//GALLERY RENDERING
 function renderGallery(){
 
-    for(let item of document.querySelectorAll('.gallery__item')) {
+    let index = 0;
+    for(let item  of document.querySelectorAll('.gallery__item')) {
         item.remove();
     }
-
     for(let media of mediaList){
-        media.render(gallery);
+        media.render(gallery, index);
+        index++;
     }
+    setTimeout(lightboxClick, 1000);
+    
 }
 
+function likeTotal() {
+    let totalLikes = 0;
+        for(let media of mediaList){
+            totalLikes += media._like;
+        }
+        document.querySelector(".like-number").innerHTML = totalLikes;
+};
+//Like feature
+
+function like() {
+    let likeButtons = document.querySelectorAll(".like-button");
+    for(let button of likeButtons) {
+        button.addEventListener( "click", (event) => {            
+            let media = button.closest(".gallery__item").querySelector(".gallery__item__image");
+            mediaList[media.id].liked();
+            media.closest(".gallery__item").querySelector(".item-likeCount").innerHTML = mediaList[media.id]._like;
+            likeTotal();
+    });
+}
+}
+
+
+//DATA FETCHING
 fetch("ressources/data/FishEyeData.json")
     .then(response => response.json())  //transforme la reponse en json
     .then(data => data.photographers)   
@@ -91,5 +154,7 @@ fetch("ressources/data/FishEyeData.json")
                 mediaList.push(Factory.createMedia(media));
             }
         }
-        renderGallery();
+        renderGallery();        
+        likeTotal();
+        setTimeout(like, 1000);
     });

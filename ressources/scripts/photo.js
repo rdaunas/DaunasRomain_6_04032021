@@ -12,7 +12,12 @@ export class Photo {
         this._date = date;
     }
 
-    render(parent) {
+    liked() {
+        this._like += 1;
+        //rerender like count
+    }
+
+    render(parent, index) {
         let photographer;
         fetch("ressources/data/FishEyeData.json")
             .then(response => response.json())  //transforme la reponse en json
@@ -22,13 +27,25 @@ export class Photo {
                 let folderName = photographer.name.split(" ");
                 parent.insertAdjacentHTML("beforeend",`
                     <div class="gallery__item">
-                    <img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image"/>
-                    <div class="gallery__item__details">
-                        <p>${this._title}</p>
-                        <p>${this._like} <i class="fas fa-heart"></i></i></p>
-                    </div>                
+                        <div class="gallery__item__element">
+                            <img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image" id="${index}"/>
+                        </div>
+                        <div class="gallery__item__details">
+                            <p >${this._title}</p>
+                            <p class="item-likeCount">${this._like} </p><i class="fas fa-heart like-button"></i>
+                        </div>                
                     </div>`);
             });             
     }
-
+    renderLightbox(){        
+        let photographer;
+        fetch("ressources/data/FishEyeData.json")
+            .then(response => response.json())  //transforme la reponse en json
+            .then(data => data.photographers)   
+            .then( (jsonData) => { 
+                photographer = jsonData.find( element => element.id == window.location.search.substring(1));
+                let folderName = photographer.name.split(" ");
+                return `<img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image"/>`;
+            });             
+    }
 }

@@ -12,7 +12,12 @@ export class Video {
         this._date = date;
     }
 
-    render(parent) {
+
+    liked() {
+        this._like += 1;
+        //rerender like count
+    }
+    render(parent, index) {
 
         let photographer;
         fetch("ressources/data/FishEyeData.json")
@@ -23,16 +28,29 @@ export class Video {
                 let folderName = photographer.name.split(" ")
                 parent.insertAdjacentHTML("beforeend",`
                         <div class="gallery__item">
-                        <video class="gallery__item__image">
-                            <source src="ressources/images/${folderName[0]}/${this._video}"
-                            Sorry, your browser doesn't support embedded videos.
-                        </video>
-                        <div class="gallery__item__details">
-                            <p>${this._title}</p>
-                            <p>${this._like} <i class="fas fa-heart"></i></i></p>
-                        </div>                
+                            <video class="gallery__item__element gallery__item__image" id="${index}">
+                                <source src="ressources/images/${folderName[0]}/${this._video}"
+                                Sorry, your browser doesn't support embedded videos.
+                            </video>
+                            <div class="gallery__item__details">
+                                <p>${this._title}</p>
+                                <p class="item-likeCount">${this._like}</p><i class="fas fa-heart like-button"> </i>
+                            </div>                
                         </div>
                 `); 
         });
+    }
+    renderLightbox(){        
+        let photographer;
+        fetch("ressources/data/FishEyeData.json")
+            .then(response => response.json())  //transforme la reponse en json
+            .then(data => data.photographers)   
+            .then( (jsonData) => { 
+                photographer = jsonData.find( element => element.id == window.location.search.substring(1));
+                let folderName = photographer.name.split(" ");
+                return `<video class="gallery__item__image">
+                            <source src="ressources/images/${folderName[0]}/${this._video}"/>
+                        </video>`;
+            });             
     }
 }

@@ -252,6 +252,10 @@ body {
   }
 }
 
+.like-button {
+  cursor: pointer;
+}
+
 .dropdown {
   background-color: #901c1c;
   color: #FFFFFF;
@@ -330,6 +334,38 @@ body {
   color: white;
   font-size: 1.5rem;
   padding: 15px;
+}
+
+.lightbox {
+  background-color: rgba(128, 128, 128, 0.507);
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  color: #901c1c;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+.lightbox__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.lightbox__button {
+  margin: 50px;
+}
+.lightbox__content {
+  width: 1050px;
+  height: 800px;
+  overflow: hidden;
+}
+.lightbox__close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */
