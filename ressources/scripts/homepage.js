@@ -9,6 +9,7 @@ let photographList = [];
 
 let filterOn = false;
 //Loading all photograph
+getAllPhotograph();
 filtering();
 
 //event listener sur le changement de # de l'url
@@ -16,9 +17,10 @@ window.addEventListener("hashchange", filtering);
 
 //Filter proxy 
 function filtering() {
+    console.log("FILTERING...");
     let filter = window.location.hash;
-    if(filter == "" || filter =="#"){
-        getAllPhotograph();
+    if(filter == ""){
+        photographList = photograhData;       
         filterOn = false;
     }
     else {
@@ -26,6 +28,18 @@ function filtering() {
         filterOn = true;
     }    
     listRender();
+}
+//Event Listener on filters
+let filters = document.querySelectorAll(".filter");
+for(let filterElement of filters){
+    filterElement.addEventListener('click', () => {
+
+            if( window.location.hash == filterElement.innerHTML.toLowerCase() && filterOn == true){
+            setTimeout( () => {window.location.hash = "";}, 10);
+            
+        }
+        
+    })
 }
 //Render photograh
 function listRender() {

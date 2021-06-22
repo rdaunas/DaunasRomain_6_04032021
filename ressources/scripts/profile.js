@@ -30,7 +30,8 @@ function lightboxClick() {
     for (let image of allImage) { 
         image.addEventListener("click", () => {
             lightbox.style.display = "block";
-            lightboxContent.innerHTML = image.innerHTML;
+           // lightboxContent.innerHTML = image.innerHTML;
+           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox();
             //TODO SET CURRENT INDEX
             currentIndex = image.id;
     })
@@ -47,7 +48,7 @@ document.querySelector("#lightbox__previous").addEventListener("click", () => {
 });
 document.querySelector("#lightbox__next").addEventListener("click", () => {
     if(currentIndex == mediaList.length){
-        return
+        return;
     }
     currentIndex ++;    
     lightboxContent.innerHTML = document.getElementById(currentIndex.toString()).innerHTML;
@@ -103,7 +104,7 @@ function renderGallery(){
         media.render(gallery, index);
         index++;
     }
-    setTimeout(lightboxClick, 1000);
+    setTimeout(lightboxClick, 500);
     
 }
 
@@ -164,5 +165,5 @@ fetch("ressources/data/FishEyeData.json")
         }
         renderGallery();        
         likeTotal();
-        setTimeout(like, 1000);
+        setTimeout(like, 500);
     });

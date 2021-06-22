@@ -29,8 +29,7 @@ export class Video {
                 parent.insertAdjacentHTML("beforeend",`
                         <div class="gallery__item">
                             <video class="gallery__item__element gallery__item__image" id="${index}">
-                                <source src="ressources/images/${folderName[0]}/${this._video}"
-                                Sorry, your browser doesn't support embedded videos.
+                                <source src="ressources/images/${folderName[0]}/${this._video}"></source>
                             </video>
                             <div class="gallery__item__details">
                                 <p>${this._title}</p>
@@ -48,9 +47,7 @@ export class Video {
             .then( (jsonData) => { 
                 photographer = jsonData.find( element => element.id == window.location.search.substring(1));
                 let folderName = photographer.name.split(" ");
-                return `<video class="gallery__item__image">
-                            <source src="ressources/images/${folderName[0]}/${this._video}"/>
-                        </video>`;
+                return `<video class="gallery__item__image gallery__item__element"><source src="ressources/images/${folderName[0]}/${this._video}"></source></video>`;
             });             
     }
 }
