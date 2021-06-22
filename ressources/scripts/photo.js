@@ -27,8 +27,8 @@ export class Photo {
                 let folderName = photographer.name.split(" ");
                 parent.insertAdjacentHTML("beforeend",`
                     <div class="gallery__item">
-                        <div class="gallery__item__element">
-                            <img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image" id="${index}"/>
+                        <div class="gallery__item__element"id="${index}">
+                            <img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image" />
                         </div>
                         <div class="gallery__item__details">
                             <p >${this._title}</p>

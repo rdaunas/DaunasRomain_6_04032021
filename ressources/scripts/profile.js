@@ -28,21 +28,29 @@ document.querySelector(".lightbox__close").addEventListener("click", () => {
 function lightboxClick() {
     let allImage = document.querySelectorAll(".gallery__item__element");
     for (let image of allImage) { 
-        image.addEventListener("click", (event) => {
+        image.addEventListener("click", () => {
             lightbox.style.display = "block";
             lightboxContent.innerHTML = image.innerHTML;
             //TODO SET CURRENT INDEX
-            currentIndex = event.target.id;
+            currentIndex = image.id;
     })
 };
 }
+
+//prevent out of bound
 document.querySelector("#lightbox__previous").addEventListener("click", () => {
-    currentIndex -=1;
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox();
+    if(currentIndex == 0) {
+        return ;
+    }
+    currentIndex --;
+    lightboxContent.innerHTML = document.getElementById(currentIndex.toString()).innerHTML;
 });
 document.querySelector("#lightbox__next").addEventListener("click", () => {
-    currentIndex +=1;
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox();
+    if(currentIndex == mediaList.length){
+        return
+    }
+    currentIndex ++;    
+    lightboxContent.innerHTML = document.getElementById(currentIndex.toString()).innerHTML;
 });
 
 
@@ -112,7 +120,7 @@ function like() {
     let likeButtons = document.querySelectorAll(".like-button");
     for(let button of likeButtons) {
         button.addEventListener( "click", (event) => {            
-            let media = button.closest(".gallery__item").querySelector(".gallery__item__image");
+            let media = button.closest(".gallery__item").querySelector(".gallery__item__element");
             mediaList[media.id].liked();
             media.closest(".gallery__item").querySelector(".item-likeCount").innerHTML = mediaList[media.id]._like;
             likeTotal();
