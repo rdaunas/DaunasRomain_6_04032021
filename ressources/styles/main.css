@@ -13,11 +13,11 @@
     font-size: 0.75rem;
   }
 }
-.filter:hover {
+.filter--nav:hover {
   background-color: #901c1c;
   color: #fafafa;
 }
-.filter:focus {
+.filter--nav:focus {
   background-color: #901c1c;
   color: #fafafa;
 }
@@ -114,11 +114,16 @@ body {
   justify-content: space-around;
 }
 .gallery__item {
-  margin: 15px;
+  margin: 30px;
   margin-top: 100px;
   width: 350px;
   border-radius: 5px;
   overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+  .gallery__item {
+    margin-top: 25px;
+  }
 }
 .gallery__item__image {
   height: 300px;
@@ -139,6 +144,16 @@ body {
 @media only screen and (max-width: 600px) {
   .gallery__item__details {
     font-size: 0.75rem;
+  }
+}
+.gallery__item__details__like {
+  display: flex;
+  width: 60px;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 600px) {
+  .gallery__item__details__like {
+    width: 30px;
   }
 }
 
@@ -211,17 +226,17 @@ body {
   padding: 0 50px;
   max-height: 300px;
   position: relative;
+  margin-bottom: 50px;
 }
 @media only screen and (max-width: 600px) {
   .card--profile {
     padding: 0 10px;
-    margin-bottom: 50px;
   }
 }
 .card--profile__desc {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-size: 1.1rem;
 }
 @media only screen and (max-width: 600px) {
@@ -242,6 +257,7 @@ body {
   padding: 23px 20px;
   max-height: 70px;
   border: none;
+  margin-left: 100px;
 }
 @media only screen and (max-width: 600px) {
   .button--contact {
@@ -291,6 +307,12 @@ body {
     display: none;
   }
 }
+.sticky__likeCount {
+  display: flex;
+  width: 25%;
+  justify-content: space-between;
+  align-content: center;
+}
 
 .modal {
   background-color: #DB8876;
@@ -302,8 +324,24 @@ body {
   display: none;
   border-radius: 5px;
 }
+@media only screen and (max-width: 600px) {
+  .modal {
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+  }
+}
 .modal__title {
   font-size: 4rem;
+  font-weight: 400;
+}
+@media only screen and (max-width: 600px) {
+  .modal__title {
+    font-size: 2rem;
+  }
 }
 .modal__close {
   cursor: pointer;
@@ -313,6 +351,13 @@ body {
   right: 15px;
   font-size: 5rem;
 }
+@media only screen and (max-width: 600px) {
+  .modal__close {
+    font-size: 2rem;
+    top: 20px;
+    right: 60px;
+  }
+}
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -321,9 +366,19 @@ body {
   border-radius: 5px;
   height: 70px;
 }
+@media only screen and (max-width: 600px) {
+  .modal__form__input {
+    width: 340px;
+  }
+}
 .modal__form__label {
   font-size: 2.25rem;
   color: #312E2E;
+}
+@media only screen and (max-width: 600px) {
+  .modal__form__label {
+    font-size: 1.5rem;
+  }
 }
 .modal__form__submit {
   width: 170px;
@@ -334,6 +389,13 @@ body {
   color: white;
   font-size: 1.5rem;
   padding: 15px;
+}
+@media only screen and (max-width: 600px) {
+  .modal__form__submit {
+    font-size: 1.1rem;
+    align-self: center;
+    padding: 5px 15px;
+  }
 }
 
 .lightbox {
@@ -351,6 +413,7 @@ body {
 }
 .lightbox__container {
   display: flex;
+  height: 100%;
   justify-content: space-around;
   align-items: center;
 }
@@ -358,9 +421,23 @@ body {
   margin: 50px;
 }
 .lightbox__content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
   width: 1050px;
   height: 800px;
   overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+  .lightbox__content {
+    width: 290px;
+    height: 250px;
+  }
+}
+.lightbox__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .lightbox__close {
   position: absolute;

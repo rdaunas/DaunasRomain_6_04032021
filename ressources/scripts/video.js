@@ -33,21 +33,16 @@ export class Video {
                             </video>
                             <div class="gallery__item__details">
                                 <p>${this._title}</p>
-                                <p class="item-likeCount">${this._like}</p><i class="fas fa-heart like-button"> </i>
+                                    <div class="gallery__item__details__like">
+                                <p>${this._like} </p><i class="fas fa-heart like-button"></i>
+                            </div>
                             </div>                
                         </div>
                 `); 
         });
     }
-    renderLightbox(){        
-        let photographer;
-        fetch("ressources/data/FishEyeData.json")
-            .then(response => response.json())  //transforme la reponse en json
-            .then(data => data.photographers)   
-            .then( (jsonData) => { 
-                photographer = jsonData.find( element => element.id == window.location.search.substring(1));
-                let folderName = photographer.name.split(" ");
-                return `<video class="gallery__item__image gallery__item__element"><source src="ressources/images/${folderName[0]}/${this._video}"></source></video>`;
-            });             
+    renderLightbox(folderName){        
+        
+                return `<video class="lightbox__video"><source src="ressources/images/${folderName[0]}/${this._video}"></source></video>`;            
     }
 }

@@ -10,18 +10,24 @@ const lightboxContent = document.querySelector(".lightbox__content")
 //List of media
 let mediaList = [];
 let photographInfo;
+let folderName;
 let currentIndex = 0;
 
-
+//
+//
+//  FIX FETCH IN MEDIA RENDER && FIX CSS && FIX VIDEO
+//
+//
 trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
 });
 
 
 
-//LOGHTBOX
+//LIGHTBOX
 document.querySelector(".lightbox__close").addEventListener("click", () => {
     lightbox.style.display = "none";
+    lightboxContent.innerHTML = "";
 });
 
 
@@ -29,11 +35,13 @@ function lightboxClick() {
     let allImage = document.querySelectorAll(".gallery__item__element");
     for (let image of allImage) { 
         image.addEventListener("click", () => {
+            console.log("click");
             lightbox.style.display = "block";
-           // lightboxContent.innerHTML = image.innerHTML;
-           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox();
-            //TODO SET CURRENT INDEX
             currentIndex = image.id;
+           // lightboxContent.innerHTML = image.innerHTML;
+           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+            
+            
     })
 };
 }
@@ -44,14 +52,14 @@ document.querySelector("#lightbox__previous").addEventListener("click", () => {
         return ;
     }
     currentIndex --;
-    lightboxContent.innerHTML = document.getElementById(currentIndex.toString()).innerHTML;
+    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
 });
 document.querySelector("#lightbox__next").addEventListener("click", () => {
     if(currentIndex == mediaList.length){
         return;
     }
     currentIndex ++;    
-    lightboxContent.innerHTML = document.getElementById(currentIndex.toString()).innerHTML;
+    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
 });
 
 
@@ -101,10 +109,10 @@ function renderGallery(){
         item.remove();
     }
     for(let media of mediaList){
-        media.render(gallery, index);
+        media.render(gallery, index, photographInfo.name.split(" "));
         index++;
     }
-    setTimeout(lightboxClick, 500);
+    setTimeout(lightboxClick, 50);
     
 }
 
@@ -136,6 +144,7 @@ fetch("ressources/data/FishEyeData.json")
     .then(data => data.photographers)   
     .then( (jsonData) => {              
         photographInfo = jsonData.find( element => element.id == window.location.search.substring(1));
+        setTimeout(() => {folderName = photographInfo.name.split(" ")}, 50);
         let photographtags ="";
         for(let tag of photographInfo.tags){
         photographtags += `<a class="filter">#${tag}</a>`
@@ -163,7 +172,7 @@ fetch("ressources/data/FishEyeData.json")
                 mediaList.push(Factory.createMedia(media));
             }
         }
-        renderGallery();        
-        likeTotal();
-        setTimeout(like, 500);
+        setTimeout(renderGallery, 50);
+        setTimeout(likeTotal, 50);
+        setTimeout(like, 50);
     });
