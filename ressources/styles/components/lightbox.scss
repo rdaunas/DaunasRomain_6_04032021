@@ -22,13 +22,16 @@
     }
     &__button {
         margin: 50px;
+        @media only screen and (max-width: 600px) {
+            margin: 10px;
+            font-size: 2rem;
+        }
+
     }
     &__content {
         display: flex;
         align-content: center;
         justify-content: center;
-        width: 1050px;
-        height: 800px;
         overflow: hidden;
         @media only screen and (max-width: 600px) {
             width: 290px;
@@ -36,10 +39,14 @@
         }
         
     }
+    &__video {
+        width: 100%;
+        
+    }
     &__image {
         height: 100%;
         width: 100%;
-        object-fit: cover;
+        object-fit: scale-down;
     }
     &__close {
         position: absolute;

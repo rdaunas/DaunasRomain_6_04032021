@@ -13,11 +13,7 @@ let photographInfo;
 let folderName;
 let currentIndex = 0;
 
-//
-//
-//  FIX FETCH IN MEDIA RENDER && FIX CSS && FIX VIDEO
-//
-//
+
 trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
 });
@@ -35,7 +31,6 @@ function lightboxClick() {
     let allImage = document.querySelectorAll(".gallery__item__element");
     for (let image of allImage) { 
         image.addEventListener("click", () => {
-            console.log("click");
             lightbox.style.display = "block";
             currentIndex = image.id;
            // lightboxContent.innerHTML = image.innerHTML;
