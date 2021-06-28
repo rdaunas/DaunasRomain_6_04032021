@@ -138,6 +138,7 @@ body {
 }
 .gallery__item__details {
   color: #901c1c;
+  padding: 5px;
   font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -149,13 +150,16 @@ body {
 }
 .gallery__item__details__like {
   display: flex;
-  width: 60px;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (max-width: 600px) {
   .gallery__item__details__like {
     width: 30px;
   }
+}
+.gallery__item__details__like i {
+  margin-left: 7px;
 }
 
 .card {
