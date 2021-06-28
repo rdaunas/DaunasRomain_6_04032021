@@ -17,15 +17,7 @@ export class Video {
         this._like += 1;
         //rerender like count
     }
-    render(parent, index) {
-
-        let photographer;
-        fetch("ressources/data/FishEyeData.json")
-            .then(response => response.json())  //transforme la reponse en json
-            .then(data => data.photographers)   
-            .then( jsonData => { 
-                photographer = jsonData.find( element => element.id == window.location.search.substring(1));
-                let folderName = photographer.name.split(" ")
+    render(parent, index, folderName) {
                 parent.insertAdjacentHTML("beforeend",`
                         <div class="gallery__item">
                             <video class="gallery__item__element gallery__item__image" id="${index}">
@@ -38,8 +30,7 @@ export class Video {
                             </div>
                             </div>                
                         </div>
-                `); 
-        });
+                `);
     }
     renderLightbox(folderName){        
         
