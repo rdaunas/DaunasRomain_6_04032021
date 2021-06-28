@@ -26,7 +26,7 @@ export class Photo {
                         <div class="gallery__item__details">
                             <p >${this._title}</p>
                             <div class="gallery__item__details__like">
-                                <p>${this._like} </p><i class="fas fa-heart like-button"></i>
+                                <p class="item-likeCount">${this._like} </p><i class="fas fa-heart like-button"></i>
                             </div>
                             
                         </div>                

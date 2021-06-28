@@ -123,7 +123,7 @@ function likeTotal() {
 function like() {
     let likeButtons = document.querySelectorAll(".like-button");
     for(let button of likeButtons) {
-        button.addEventListener( "click", (event) => {            
+        button.addEventListener( "click", () => {            
             let media = button.closest(".gallery__item").querySelector(".gallery__item__element");
             mediaList[media.id].liked();
             media.closest(".gallery__item").querySelector(".item-likeCount").innerHTML = mediaList[media.id]._like;
@@ -155,6 +155,7 @@ fetch("ressources/data/FishEyeData.json")
                             <img src="ressources/images/Photographers ID Photos/${photographInfo.portrait}" class="card__image card__image--profile"/>
                             ` );
         modalSetUp();
+        document.querySelector(".sticky__tarif").innerHTML = `${photographInfo.price}€ / jours`;
 });
 
 
