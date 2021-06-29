@@ -58,7 +58,22 @@ document.querySelector("#lightbox__next").addEventListener("click", () => {
     lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
 });
 
-
+window.addEventListener("keydown", (event) => {
+    if(event.key != "ArrowLeft"){return;}
+    if(currentIndex == 0) {
+        return ;
+    }
+    currentIndex --;
+    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+});
+window.addEventListener("keydown", (event) => {
+    if(event.key != "ArrowRight"){return;}
+    if(currentIndex == mediaList.length){
+        return;
+    }
+    currentIndex ++;    
+    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+});
 //FILTERING
 function filterMedia(filter) {
     if(filter == "popularity"){mediaList.sort(compareLike);}
