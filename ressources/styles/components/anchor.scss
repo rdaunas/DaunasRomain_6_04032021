@@ -1,8 +1,9 @@
 @use "../utils/color.scss";
 
 .anchor {
-    position: fixed;
-    display: none;
+    position: absolute;
+    display: block;
+    opacity: 0;
     color: black;
     border-radius: 8px;
     background-color: #DB8876;
@@ -10,6 +11,7 @@
     font-weight: 600;
     text-decoration: none;
     padding: 8px 16px;
-    top: 20px;
+    top: 5px;
     left: calc(50% - 110px);
+    
 }

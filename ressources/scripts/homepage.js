@@ -1,6 +1,12 @@
 import {Photograph} from'./photographe.js';
 
 const photographContainer = document.querySelector(".homepage__content");
+const topButton = document.querySelector(".anchor");
+
+topButton.addEventListener("focus", () => {
+    topButton.style.opacity = "1";
+    topButton.addEventListener("focusout", () => {topButton.style.opacity = "0";})
+})
 
 //Store data de tout les photographes
 let photograhData= [];
@@ -10,14 +16,13 @@ let photographList = [];
 let filterOn = false;
 //Loading all photograph
 getAllPhotograph();
-filtering();
+
 
 //event listener sur le changement de # de l'url
 window.addEventListener("hashchange", filtering);
 
 //Filter proxy 
 function filtering() {
-    console.log("FILTERING...");
     let filter = window.location.hash;
     if(filter == ""){
         photographList = photograhData;       
@@ -106,6 +111,6 @@ function getAllPhotograph()  {
             allPhotograph.push(new Photograph(jsonData[i].name , jsonData[i].id , jsonData[i].city , jsonData[i].country , jsonData[i].tags , jsonData[i].tagline , jsonData[i].price , jsonData[i].portrait))
         }
         photograhData = allPhotograph;
-        listRender();
-    });
+    })
+    .then( () => {filtering()});
 }

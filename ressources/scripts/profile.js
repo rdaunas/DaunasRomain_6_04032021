@@ -13,6 +13,7 @@ let photographInfo;
 let folderName;
 let currentIndex = 0;
 
+//REFACTOR: MOVE LIGHTBOX, REMOVE SETTIMEOUT, MERGE FETCH
 
 trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
@@ -62,8 +63,7 @@ document.querySelector("#lightbox__next").addEventListener("click", () => {
 function filterMedia(filter) {
     if(filter == "popularity"){mediaList.sort(compareLike);}
     if(filter == "date"){mediaList.sort(compareDate);}
-    if(filter == "title"){mediaList.sort(compareTitle);}    
-    console.log(mediaList);
+    if(filter == "title"){mediaList.sort(compareTitle);}
     renderGallery();
 }
 function compareTitle(a, b) {

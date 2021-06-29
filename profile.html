@@ -20,6 +20,7 @@
         <section id="trier">
             <label for="image-filter">Trier par</label>
             <select id=image-filter class="dropdown">
+                <option value="">Filtres</option>
                 <option value="popularity">Popularité</option>
                 <option value="date">Date</option>
                 <option value="title">Titre</option>
@@ -38,13 +39,13 @@
         <h2 class="modal__title">Contactez-moi <br/> Mimi Keel</h2>
         <i class="fas fa-times modal__close"></i>
         <form class="modal__form">
-            <label class="modal__form__label">Prénom</label>
+            <label class="modal__form__label" for="prenom">Prénom</label>
             <input type="text" class="modal__form__input" id="prenom"/>
-            <label class="modal__form__label">Nom</label>
+            <label class="modal__form__label" for="nom">Nom</label>
             <input type="text" class="modal__form__input" id="nom"/>
-            <label class="modal__form__label">Email</label>
+            <label class="modal__form__label" for="mail">Email</label>
             <input type="email" class="modal__form__input" id="mail"/>
-            <label class="modal__form__label">Votre message</label>
+            <label class="modal__form__label" for="message">Votre message</label>
             <input type="text" class="modal__form__input" id="message"/>
             <input type="submit" class="modal__form__submit"/>
         </form>

@@ -22,6 +22,7 @@
     }
     &__button {
         margin: 50px;
+        cursor: pointer;
         @media only screen and (max-width: 600px) {
             margin: 10px;
             font-size: 2rem;
@@ -52,6 +53,7 @@
         position: absolute;
         top: 30px;
         right: 30px;
+        cursor: pointer;
     }
 
 }
