@@ -1,17 +1,17 @@
 import {Factory} from'../scripts/Factory.js';
 import { modalSetUp } from './modal.js';
+import { lightboxClick } from './Lightbox.js';
 
 const profile = document.querySelector("#profile");
 const gallery = document.querySelector("#gallery");
 const trier = document.querySelector("#image-filter");
 
 const lightbox = document.querySelector("#lightbox");
-const lightboxContent = document.querySelector(".lightbox__content")
+
 //List of media
 let mediaList = [];
 let photographInfo;
 let folderName;
-let currentIndex = 0;
 
 //REFACTOR: MOVE LIGHTBOX, REMOVE SETTIMEOUT, MERGE FETCH
 window.addEventListener("keydown", (event) => {
@@ -27,64 +27,7 @@ trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
 });
 
-//LIGHTBOX
-document.querySelector(".lightbox__close").addEventListener("click", () => {
-    lightbox.style.display = "none";
-    lightboxContent.innerHTML = "";
-});
 
-
-function lightboxClick() {
-    let allImage = document.querySelectorAll(".gallery__item__element");
-    for (let image of allImage) { 
-        image.addEventListener("click", () => {
-            lightbox.style.display = "block";
-            currentIndex = image.id;
-           // lightboxContent.innerHTML = image.innerHTML;
-           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);     
-    });
-    image.addEventListener("keydown", (event) => {
-        if(event.key != "ENTER"){return};
-        lightbox.style.display = "block";
-        currentIndex = image.id;
-       // lightboxContent.innerHTML = image.innerHTML;
-       lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-    });
-    }
-}
-
-
-document.querySelector("#lightbox__previous").addEventListener("click", () => {
-    if(currentIndex == 0) {
-        return ;
-    }
-    currentIndex --;
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-});
-document.querySelector("#lightbox__next").addEventListener("click", () => {
-    if(currentIndex == mediaList.length){
-        return;
-    }
-    currentIndex ++;    
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-});
-
-window.addEventListener("keydown", (event) => {
-    if(event.key != "ArrowLeft"){return;}
-    if(currentIndex == 0) {
-        return ;
-    }
-    currentIndex --;
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-});
-window.addEventListener("keydown", (event) => {
-    if(event.key != "ArrowRight"){return;}
-    if(currentIndex == mediaList.length){
-        return;
-    }
-    currentIndex ++;    
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-});
 //FILTERING
 function filterMedia(filter) {
     if(filter == "popularity"){mediaList.sort(compareLike);}
@@ -133,7 +76,7 @@ function renderGallery(){
         media.render(gallery, index, photographInfo.name.split(" "));
         index++;
     }
-    setTimeout(lightboxClick, 50);
+    setTimeout(lightboxClick(mediaList,folderName), 50);
     
 }
 
