@@ -14,12 +14,18 @@ let folderName;
 let currentIndex = 0;
 
 //REFACTOR: MOVE LIGHTBOX, REMOVE SETTIMEOUT, MERGE FETCH
+window.addEventListener("keydown", (event) => {
+    if(event.key == "Escape"){
+        lightbox.style.display = "none";
+        let modal = document.querySelector(".modal");
+        modal.style.display = "none";
+    }
+});
+
 
 trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
 });
-
-
 
 //LIGHTBOX
 document.querySelector(".lightbox__close").addEventListener("click", () => {
@@ -35,14 +41,19 @@ function lightboxClick() {
             lightbox.style.display = "block";
             currentIndex = image.id;
            // lightboxContent.innerHTML = image.innerHTML;
-           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-            
-            
-    })
-};
+           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);     
+    });
+    image.addEventListener("keydown", (event) => {
+        if(event.key != "ENTER"){return};
+        lightbox.style.display = "block";
+        currentIndex = image.id;
+       // lightboxContent.innerHTML = image.innerHTML;
+       lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    });
+    }
 }
 
-//prevent out of bound
+
 document.querySelector("#lightbox__previous").addEventListener("click", () => {
     if(currentIndex == 0) {
         return ;
@@ -157,17 +168,17 @@ fetch("ressources/data/FishEyeData.json")
         setTimeout(() => {folderName = photographInfo.name.split(" ")}, 50);
         let photographtags ="";
         for(let tag of photographInfo.tags){
-        photographtags += `<a class="filter">#${tag}</a>`
+        photographtags += `<a class="filter" href="https://gosugladesh.github.io/DaunasRomain_6_04032021/index.html#${tag}">#${tag}</a>`
         }
         profile.insertAdjacentHTML('afterbegin',
                             ` <div class="card--profile__desc">
                             <h1 class="card__title card__title--profile">${photographInfo.name}</h1>
                             <p class="card__location card__location--profile">${photographInfo.city},${photographInfo.country}</p>
                             <p class="card__bio">${photographInfo.tagline}</p>
-                            <div class="card__tags">${photographtags}</div>
+                            <div class="card__tags" alt="Tag">${photographtags}</div>
                             </div>            
-                            <button class="button--contact">Contactez-moi</button>
-                            <img src="ressources/images/Photographers ID Photos/${photographInfo.portrait}" class="card__image card__image--profile"/>
+                            <button class="button--contact" alt="Contact Me">Contactez-moi</button>
+                            <img src="ressources/images/Photographers ID Photos/${photographInfo.portrait}" alt="${photographInfo.name}" class="card__image card__image--profile"/>
                             ` );
         modalSetUp();
         document.querySelector(".sticky__tarif").innerHTML = `${photographInfo.price}€ / jours`;

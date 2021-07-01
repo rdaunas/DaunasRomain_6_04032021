@@ -12,14 +12,14 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="main-header__logo" alt="" src="/ressources/images/logo.png" /></a>
+        <a href="index.html"><img class="main-header__logo" alt="Fisheye Home Page" src="ressources/images/logo.png" /></a>
     </header>
     <main>
         <section id="profile" class="card--profile"> 
         </section>
         <section id="trier">
-            <label for="image-filter">Trier par</label>
-            <select id=image-filter class="dropdown">
+            <label for="image-filter" id="FilterLabel">Trier par</label>
+            <select id=image-filter class="dropdown" alt="Order by" aria-labelledby="FilterLabel">
                 <option value="">Filtres</option>
                 <option value="popularity">Popularité</option>
                 <option value="date">Date</option>
@@ -35,29 +35,29 @@
             <p class="sticky__tarif"></p>
         </div>
     </main>
-    <section class="modal">
-        <h2 class="modal__title">Contactez-moi <br/> Mimi Keel</h2>
-        <i class="fas fa-times modal__close"></i>
+    <section class="modal" aria-labelledby="contactmeTitle">
+        <h2 class="modal__title" id="contactmeTitle">Contactez-moi <br/> Mimi Keel</h2>
+        <i class="fas fa-times modal__close" alt="close contact form"></i>
         <form class="modal__form">
-            <label class="modal__form__label" for="prenom">Prénom</label>
-            <input type="text" class="modal__form__input" id="prenom"/>
-            <label class="modal__form__label" for="nom">Nom</label>
-            <input type="text" class="modal__form__input" id="nom"/>
-            <label class="modal__form__label" for="mail">Email</label>
-            <input type="email" class="modal__form__input" id="mail"/>
-            <label class="modal__form__label" for="message">Votre message</label>
-            <input type="text" class="modal__form__input" id="message"/>
-            <input type="submit" class="modal__form__submit"/>
+            <label class="modal__form__label" for="prenom" id="labelPrenom">Prénom</label>
+            <input type="text" class="modal__form__input" id="prenom" aria-labelledby="labelPrenom"/>
+            <label class="modal__form__label" for="nom" id="labelNom">Nom</label>
+            <input type="text" class="modal__form__input" id="nom" aria-labelledby="labelNom"/>
+            <label class="modal__form__label" for="mail" id="labelMail">Email</label>
+            <input type="email" class="modal__form__input" id="mail" aria-labelledby="labelMail"/>
+            <label class="modal__form__label" for="message" id="labelMessage">Votre message</label>
+            <input type="text" class="modal__form__input" id="message" aria-labelledby="labelMessage"/>
+            <input type="submit" class="modal__form__submit" alt="Send"/>
         </form>
     </section>  
-    <section id="lightbox" class="lightbox">
+    <section id="lightbox" class="lightbox" aria-label="image closeup viex">
         <div class="lightbox__container">
-            <i class="fas fa-times fa-7x lightbox__close"></i>
-            <i class="fas fa-chevron-left fa-7x lightbox__button" id="lightbox__previous"></i>
+            <i class="fas fa-times fa-7x lightbox__close" alt="Close Dialog"></i>
+            <i class="fas fa-chevron-left fa-7x lightbox__button" id="lightbox__previous" alt="Previous Image"></i>
             <div class="lightbox__content">
-                <img src="ressources/images/Marcel/Architecture_Corner_Room.jpg" />
+                
             </div>
-            <i class="fas fa-chevron-right fa-7x lightbox__button" id="lightbox__next"></i>
+            <i class="fas fa-chevron-right fa-7x lightbox__button" id="lightbox__next" alt="Next Image"></i>
         </div>
         
     </section>  

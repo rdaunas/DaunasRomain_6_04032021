@@ -15,11 +15,11 @@
         font-size: 0.75rem;
     }
 
-    &--nav:hover{
+    &:hover{
         background-color: color.$primary-color;
         color: color.$text-background-color;
     }
-    &--nav:focus {
+    &:focus {
         background-color: color.$primary-color;
         color: color.$text-background-color;
     }

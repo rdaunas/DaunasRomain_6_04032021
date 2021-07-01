@@ -13,11 +13,11 @@
     font-size: 0.75rem;
   }
 }
-.filter--nav:hover {
+.filter:hover {
   background-color: #901c1c;
   color: #fafafa;
 }
-.filter--nav:focus {
+.filter:focus {
   background-color: #901c1c;
   color: #fafafa;
 }

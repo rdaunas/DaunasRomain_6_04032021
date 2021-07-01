@@ -38,10 +38,8 @@ function filtering() {
 let filters = document.querySelectorAll(".filter");
 for(let filterElement of filters){
     filterElement.addEventListener('click', () => {
-
             if( window.location.hash == filterElement.innerHTML.toLowerCase() && filterOn == true){
-            setTimeout( () => {window.location.hash = "";}, 10);
-            
+            setTimeout( () => {window.location.hash = "";}, 10);            
         }
         
     })
@@ -65,18 +63,18 @@ function listRender() {
         //Extracting tags and prerendering html
         let photographTagRender ="";
         for(let tag of photograph.tags) {
-            photographTagRender +=`<a class="filter">#${tag}</a>`;
+            photographTagRender +=`<a class="filter" href="#${tag}">#${tag}</a>`;
         }      
         photographContainer.insertAdjacentHTML("beforeend",`
             <div class="card">
-            <a href="profile.html?${photograph._id}" class="card__link">
+            <a href="profile.html?${photograph._id}" class="card__link" alt="${photograph._name}">
                 <img class="card__image" src="./ressources/images/Photographers ID Photos/${photograph._portrait}"/>
                 <h2 class="card__title">${photograph._name}</h2>
             </a>            
             <p class="card__location">${photograph.city}, ${photograph._country}</p>
             <p class="card__bio"${photograph._tagline}</p>
             <p class="card__price">${photograph._price}€/jour</p>
-            <div class="card__tags">${photographTagRender}</div>
+            <div class="card__tags" alt="Tag">${photographTagRender}</div>
             </div>
         `); 
     }
