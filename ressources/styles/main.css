@@ -449,6 +449,11 @@ body {
   bottom: -1.5rem;
   left: 0px;
 }
+@media only screen and (max-width: 600px) {
+  .lightbox__title {
+    bottom: -2rem;
+  }
+}
 .lightbox__video {
   width: 100%;
 }
@@ -457,11 +462,23 @@ body {
   width: 1050px;
   object-fit: scale-down;
 }
+@media only screen and (max-width: 600px) {
+  .lightbox__image {
+    width: 290px;
+    height: 250px;
+  }
+}
 .lightbox__close {
   position: absolute;
   top: 30px;
   right: 30px;
   cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .lightbox__close {
+    top: 300px;
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
