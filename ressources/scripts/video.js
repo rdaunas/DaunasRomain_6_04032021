@@ -37,6 +37,6 @@ export class Video {
     }
     renderLightbox(folderName){        
         
-                return `<video controls class="lightbox__video"><source src="ressources/images/${folderName[0]}/${this._video}" alt="${this._title}"></source></video>`;            
+                return `<video controls class="lightbox__video"><source src="ressources/images/${folderName[0]}/${this._video}" alt="${this._title}"></source></video><p class="lightbox__title">${this._title}</p>`;            
     }
 }

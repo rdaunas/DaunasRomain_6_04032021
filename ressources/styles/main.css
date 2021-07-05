@@ -411,6 +411,7 @@ body {
   left: 0px;
   display: flex;
   justify-content: center;
+  align-items: center;
   display: none;
 }
 .lightbox__container {
@@ -430,10 +431,11 @@ body {
   }
 }
 .lightbox__content {
+  position: relative;
   display: flex;
   align-content: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 @media only screen and (max-width: 600px) {
   .lightbox__content {
@@ -441,12 +443,18 @@ body {
     height: 250px;
   }
 }
+.lightbox__title {
+  position: absolute;
+  font-size: 1.5rem;
+  bottom: -1.5rem;
+  left: 0px;
+}
 .lightbox__video {
   width: 100%;
 }
 .lightbox__image {
-  height: 100%;
-  width: 100%;
+  height: 90vh;
+  width: 1050px;
   object-fit: scale-down;
 }
 .lightbox__close {

@@ -35,6 +35,6 @@ export class Photo {
 
     }
     renderLightbox(folderName){          
-                return `<img src="ressources/images/${folderName[0]}/${this._image}" class="lightbox__image" alt="${this._title}"/>`;             
+                return `<img src="ressources/images/${folderName[0]}/${this._image}" class="lightbox__image" alt="${this._title}"/><p class="lightbox__title">${this._title}</p>`;             
     }
 }

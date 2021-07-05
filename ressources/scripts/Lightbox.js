@@ -1,4 +1,5 @@
 const lightbox = document.querySelector("#lightbox");
+const lightboxContainer = document.querySelector(".lightbox__container");
 const lightboxContent = document.querySelector(".lightbox__content");
 
 let currentIndex = 0;
@@ -20,7 +21,8 @@ export function lightboxClick(mediaListImport, folderNameImport) {
         image.addEventListener("click", () => {
             lightbox.style.display = "block";
             currentIndex = image.id;
-           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);     
+           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName); 
+           lightboxContainer.insertAdjacentElement(`TA MERE`)    
     });
     image.addEventListener("keydown", (event) => {
         if(event.key != "ENTER"){return};
