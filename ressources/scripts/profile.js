@@ -5,7 +5,6 @@ import { lightboxClick } from './Lightbox.js';
 const profile = document.querySelector("#profile");
 const gallery = document.querySelector("#gallery");
 const trier = document.querySelector("#image-filter");
-
 const lightbox = document.querySelector("#lightbox");
 
 //List of media
@@ -22,7 +21,7 @@ window.addEventListener("keydown", (event) => {
     }
 });
 
-
+//Filter feature event
 trier.addEventListener("change", (event) =>{
    filterMedia(event.target.value);
 });
@@ -88,15 +87,15 @@ function likeTotal() {
         document.querySelector(".like-number").innerHTML = totalLikes;
 };
 //Like feature
-
 function like() {
     let likeButtons = document.querySelectorAll(".like-button");
     for(let button of likeButtons) {
-        button.addEventListener( "click", () => {            
+        button.addEventListener( "click", () => { 
+            //select selectione le media(photo ou video) lié au bouton like           
             let media = button.closest(".gallery__item").querySelector(".gallery__item__element");
-            mediaList[media.id].liked();
-            media.closest(".gallery__item").querySelector(".item-likeCount").innerHTML = mediaList[media.id]._like;
-            likeTotal();
+            mediaList[media.id].liked();//incrementation du compte de like du media
+            media.closest(".gallery__item").querySelector(".item-likeCount").innerHTML = mediaList[media.id]._like;//mise a jour du compteur de like
+            likeTotal();//mise a jour du compteur de like total
     });
 }
 }

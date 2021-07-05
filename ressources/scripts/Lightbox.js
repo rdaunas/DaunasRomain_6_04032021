@@ -20,20 +20,18 @@ export function lightboxClick(mediaListImport, folderNameImport) {
         image.addEventListener("click", () => {
             lightbox.style.display = "block";
             currentIndex = image.id;
-           // lightboxContent.innerHTML = image.innerHTML;
            lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);     
     });
     image.addEventListener("keydown", (event) => {
         if(event.key != "ENTER"){return};
         lightbox.style.display = "block";
         currentIndex = image.id;
-       // lightboxContent.innerHTML = image.innerHTML;
        lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
     });
     }
 };
 
-
+//Click previous
 document.querySelector("#lightbox__previous").addEventListener("click", () => {
     if(currentIndex == 0) {
         return ;
@@ -41,6 +39,7 @@ document.querySelector("#lightbox__previous").addEventListener("click", () => {
     currentIndex --;
     lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
 });
+//Click next
 document.querySelector("#lightbox__next").addEventListener("click", () => {
     if(currentIndex == mediaList.length){
         return;
@@ -48,7 +47,7 @@ document.querySelector("#lightbox__next").addEventListener("click", () => {
     currentIndex ++;    
     lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
 });
-
+//Arrow previous
 window.addEventListener("keydown", (event) => {
     if(event.key != "ArrowLeft"){return;}
     if(currentIndex == 0) {
@@ -57,6 +56,7 @@ window.addEventListener("keydown", (event) => {
     currentIndex --;
     lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
 });
+//Arroow next
 window.addEventListener("keydown", (event) => {
     if(event.key != "ArrowRight"){return;}
     if(currentIndex == mediaList.length){
