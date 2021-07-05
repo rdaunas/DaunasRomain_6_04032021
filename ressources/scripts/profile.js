@@ -10,6 +10,7 @@ const lightbox = document.querySelector("#lightbox");
 //List of media
 let mediaList = [];
 let photographInfo;
+let photographtags ="";
 let folderName;
 
 //REFACTOR: MOVE LIGHTBOX, REMOVE SETTIMEOUT, MERGE FETCH
@@ -100,13 +101,8 @@ function like() {
 }
 }
 
-//DATA FETCHING
-fetch("ressources/data/FishEyeData.json")
-    .then(response => response.json())  //transforme la reponse en json
-    .then(data => {
-        photographInfo = data.photographers.find( element => element.id == window.location.search.substring(1));
-        folderName = photographInfo.name.split(" ");
-        let photographtags ="";
+function renderProfile() {
+    folderName = photographInfo.name.split(" ");        
         for(let tag of photographInfo.tags){
         photographtags += `<a class="filter" href="https://gosugladesh.github.io/DaunasRomain_6_04032021/index.html#${tag}">#${tag}</a>`
         }
@@ -122,11 +118,18 @@ fetch("ressources/data/FishEyeData.json")
                             ` );
         modalSetUp();
         document.querySelector(".sticky__tarif").innerHTML = `${photographInfo.price}€ / jours`;
+}
+//DATA FETCHING
+fetch("ressources/data/FishEyeData.json")
+    .then(response => response.json())  //transforme la reponse en json
+    .then(data => {
+        photographInfo = data.photographers.find( element => element.id == window.location.search.substring(1));        
         for (let media of data.media){
             if( media.photographerId == window.location.search.substring(1) ){
                 mediaList.push(Factory.createMedia(media));
             }
         }
+        renderProfile();
         renderGallery();
         likeTotal()
         like();
