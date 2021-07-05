@@ -42,7 +42,7 @@ document.querySelector("#lightbox__previous").addEventListener("click", () => {
 });
 //Click next
 document.querySelector("#lightbox__next").addEventListener("click", () => {
-    if(currentIndex == mediaList.length){
+    if(currentIndex == mediaList.length-1){
         return;
     }
     currentIndex ++;    
@@ -60,7 +60,7 @@ window.addEventListener("keydown", (event) => {
 //Arroow next
 window.addEventListener("keydown", (event) => {
     if(event.key != "ArrowRight"){return;}
-    if(currentIndex == mediaList.length){
+    if(currentIndex == mediaList.length-1){
         return;
     }
     currentIndex ++;    
