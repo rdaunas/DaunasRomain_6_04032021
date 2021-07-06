@@ -5,9 +5,11 @@ export function modalSetUp() {
 
     contactButton.addEventListener("click", () =>{
     modal.style.display = "block";
+    document.getElementById("prenom").focus();
     })
     closeButton.addEventListener("click", () => {
     modal.style.display = "none";
+    contactButton.focus();
     })
 }
 

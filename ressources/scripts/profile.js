@@ -88,7 +88,7 @@ function likeTotal() {
         document.querySelector(".like-number").innerHTML = totalLikes;
 };
 //Like feature
-function like(id) {
+function like() {
     let likeButtons = document.querySelectorAll(".like-button");
     for(let button of likeButtons) {
         button.addEventListener( "click", () => { 
