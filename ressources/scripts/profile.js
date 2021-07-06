@@ -88,7 +88,7 @@ function likeTotal() {
         document.querySelector(".like-number").innerHTML = totalLikes;
 };
 //Like feature
-function like() {
+function like(id) {
     let likeButtons = document.querySelectorAll(".like-button");
     for(let button of likeButtons) {
         button.addEventListener( "click", () => { 
@@ -97,10 +97,9 @@ function like() {
             mediaList[media.id].liked();//incrementation du compte de like du media
             media.closest(".gallery__item").querySelector(".item-likeCount").innerHTML = mediaList[media.id]._like;//mise a jour du compteur de like
             likeTotal();//mise a jour du compteur de like total
-    });
+        });                                         
+    }
 }
-}
-
 function renderProfile() {
     folderName = photographInfo.name.split(" ");        
         for(let tag of photographInfo.tags){

@@ -20,7 +20,7 @@ export class Video {
     render(parent, index, folderName) {
                 parent.insertAdjacentHTML("beforeend",`
                         <div class="gallery__item">
-                        <a alt="${this._title},closeup view">
+                        <a alt="${this._title},closeup view" href="#${index}" class="gallery__lightbox-link">
                             <video class="gallery__item__element gallery__item__image" id="${index}">
                                 <source src="ressources/images/${folderName[0]}/${this._video}"></source>
                             </video>
@@ -29,7 +29,7 @@ export class Video {
                             <div class="gallery__item__details">
                                 <p>${this._title}</p>
                                     <div class="gallery__item__details__like" aria-label="likes">
-                                        <p class="item-likeCount">${this._like} </p><i class="fas fa-heart like-button"></i>
+                                        <p class="item-likeCount">${this._like} </p><button class="like-button" onclick="like()"><i class="fas fa-heart"></i></button>
                                     </div>
                             </div>                
                         </div>

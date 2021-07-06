@@ -24,7 +24,7 @@ export function lightboxClick(mediaListImport, folderNameImport) {
            lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);  
     });
     image.addEventListener("keydown", (event) => {
-        if(event.key != "ENTER"){return};
+        if(event.key != "Enter"){return};
         lightbox.style.display = "block";
         currentIndex = image.id;
        lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);

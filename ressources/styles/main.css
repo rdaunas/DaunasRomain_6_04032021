@@ -38,6 +38,11 @@ p {
   margin: 0;
 }
 
+a {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   padding: 25px;
 }
@@ -114,6 +119,21 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   margin-bottom: 100px;
+}
+.gallery__lightbox-link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 300px;
+}
+.gallery__lightbox-link:focus {
+  border: 2px solid #901c1c;
+  outline: none;
+}
+@media only screen and (max-width: 600px) {
+  .gallery__lightbox-link {
+    max-height: 190px;
+  }
 }
 .gallery__item {
   margin: 30px;
@@ -271,7 +291,11 @@ body {
 }
 
 .like-button {
+  border: none;
   cursor: pointer;
+  color: #901c1c;
+  background: none;
+  font-size: 1.5rem;
 }
 
 .dropdown {

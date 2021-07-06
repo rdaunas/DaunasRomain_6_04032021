@@ -21,14 +21,14 @@ export class Photo {
             parent.insertAdjacentHTML("beforeend",`
                     <div class="gallery__item">
                         <div class="gallery__item__element" id="${index}">
-                            <a alt="${this._title},closeup view" href="#${index}">
+                            <a alt="${this._title},closeup view" href="#${index}" class="gallery__lightbox-link">
                                 <img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image" />
                             </a>                            
                         </div>
                         <div class="gallery__item__details">
                             <p >${this._title}</p>
                             <div class="gallery__item__details__like" aria-label="likes">
-                                <p class="item-likeCount">${this._like} </p><i class="fas fa-heart like-button"></i>
+                                <p class="item-likeCount">${this._like} </p><button class="like-button" onclick="like(${index})"><i class="fas fa-heart"></i></button>
                             </div>                            
                         </div>                
                     </div>`);
