@@ -28,7 +28,7 @@ export class Photo {
                         <div class="gallery__item__details">
                             <p >${this._title}</p>
                             <div class="gallery__item__details__like" aria-label="likes">
-                                <p class="item-likeCount">${this._like} </p><button class="like-button" onclick="like(${index})"><i class="fas fa-heart"></i></button>
+                                <p class="item-likeCount">${this._like} </p><button class="like-button"><i class="fas fa-heart"></i></button>
                             </div>                            
                         </div>                
                     </div>`);
