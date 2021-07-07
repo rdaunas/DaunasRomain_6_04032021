@@ -1,7 +1,7 @@
 export class Photo {
 
 
-    constructor(id, photographerId, title , image, tags , like, date, price){
+    constructor(id, photographerId, title , image, tags , like, date, price, alt){
         this._is = id;
         this._photographerId = photographerId;
         this._title = title;
@@ -10,6 +10,7 @@ export class Photo {
         this._price = price;
         this._like = like;
         this._date = date;
+        this._alt = alt;
     }
 
     liked() {
@@ -22,7 +23,7 @@ export class Photo {
                     <div class="gallery__item">
                         <div class="gallery__item__element" id="${index}">
                             <a alt="${this._title},closeup view" href="#${index}" class="gallery__lightbox-link">
-                                <img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image" />
+                                <img src="ressources/images/${folderName[0]}/${this._image}" class="gallery__item__image" alt-text ="${this._alt}" />
                             </a>                            
                         </div>
                         <div class="gallery__item__details">

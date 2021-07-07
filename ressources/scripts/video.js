@@ -1,7 +1,7 @@
 export class Video {
 
 
-    constructor(id, photographerId, title , video, tags , like, date, price){
+    constructor(id, photographerId, title , video, tags , like, date, price, alt){
         this._id = id;
         this._photographerId = photographerId;
         this._title = title;
@@ -10,6 +10,7 @@ export class Video {
         this._price = price;
         this._like = like;
         this._date = date;
+        this._alt = alt;
     }
 
 
@@ -24,6 +25,7 @@ export class Video {
                             <a alt="${this._title},closeup view" href="#${index}" class="gallery__lightbox-link">
                                 <video class="gallery__item__image"  tabindex="-1">
                                     <source src="ressources/images/${folderName[0]}/${this._video}"></source>
+                                    <p>${this._alt}</p>
                                 </video>
                             </a>
                         </div>       
