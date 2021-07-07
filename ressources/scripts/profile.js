@@ -76,7 +76,8 @@ function renderGallery(){
         media.render(gallery, index, photographInfo.name.split(" "));
         index++;
     }
-    setTimeout(lightboxClick(mediaList,folderName), 50);
+    //setTimeout(lightboxClick(mediaList,folderName), 50);
+    lightboxClick(mediaList,folderName);
     
 }
 

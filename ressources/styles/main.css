@@ -449,6 +449,9 @@ body {
 .lightbox__button {
   margin: 50px;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: #901c1c;
 }
 @media only screen and (max-width: 600px) {
   .lightbox__button {
@@ -499,6 +502,9 @@ body {
   top: 30px;
   right: 30px;
   cursor: pointer;
+  background: none;
+  border: none;
+  color: #901c1c;
 }
 @media only screen and (max-width: 600px) {
   .lightbox__close {

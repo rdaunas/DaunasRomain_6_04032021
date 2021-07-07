@@ -10,6 +10,7 @@ let folderName;
 document.querySelector(".lightbox__close").addEventListener("click", () => {
     lightbox.style.display = "none";
     lightboxContent.innerHTML = "";
+    document.getElementById(currentIndex.toString()).querySelector(".gallery__lightbox-link").focus();
 });
 
 
@@ -21,14 +22,16 @@ export function lightboxClick(mediaListImport, folderNameImport) {
         image.addEventListener("click", () => {
             lightbox.style.display = "block";
             currentIndex = image.id;
-           lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);  
-    });
-    image.addEventListener("keydown", (event) => {
-        if(event.key != "Enter"){return};
-        lightbox.style.display = "block";
-        currentIndex = image.id;
-       lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-    });
+            lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+            document.getElementById("lightbox__previous").focus();             
+        });
+        image.addEventListener("keydown", (event) => {
+            if(event.keycode != "13"){return};
+            lightbox.style.display = "block";
+            currentIndex = image.id;
+            lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+            document.getElementById("lightbox__previous").focus();
+        });
     }
 };
 
