@@ -23,14 +23,14 @@ export function lightboxClick(mediaListImport, folderNameImport) {
             lightbox.style.display = "block";
             currentIndex = image.id;
             lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-            document.getElementById("lightbox__previous").focus();             
+            setTimeout ( () => {document.getElementById("lightbox__previous").focus()}, 50);             
         });
         image.addEventListener("keydown", (event) => {
             if(event.keycode != "13"){return};
             lightbox.style.display = "block";
             currentIndex = image.id;
             lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-            document.getElementById("lightbox__previous").focus();
+            setTimeout ( () => {document.getElementById("lightbox__previous").focus()}, 50);
         });
     }
 };
