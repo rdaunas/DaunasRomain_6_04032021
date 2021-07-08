@@ -1,5 +1,4 @@
 const lightbox = document.querySelector("#lightbox");
-const lightboxContainer = document.querySelector(".lightbox__container");
 const lightboxContent = document.querySelector(".lightbox__content");
 
 let currentIndex = 0;
@@ -20,52 +19,53 @@ export function lightboxClick(mediaListImport, folderNameImport) {
     let allImage = document.querySelectorAll(".gallery__item__element");
     for (let image of allImage) { 
         image.addEventListener("click", () => {
-            lightbox.style.display = "block";
-            currentIndex = image.id;
-            lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-            setTimeout ( () => {document.getElementById("lightbox__previous").focus()}, 50);             
+            lightboxRendering(image);            
         });
         image.addEventListener("keydown", (event) => {
             if(event.keycode != "13"){return};
-            lightbox.style.display = "block";
-            currentIndex = image.id;
-            lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
-            setTimeout ( () => {document.getElementById("lightbox__previous").focus()}, 50);
+            lightboxRendering(image);
+            
         });
     }
 };
+function lightboxRendering(image) {
+    lightbox.style.display = "block";
+    currentIndex = image.id;
+    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    setTimeout ( () => {document.getElementById("lightbox__previous").focus()}, 50);
+}
 
+function lightboxNavigation(direction) {
+    if(direction === "next") {
+        if(currentIndex == mediaList.length-1){
+            return;
+        }
+        currentIndex ++;    
+        lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    }
+    if(direction === "previous"){
+        if(currentIndex == 0) {
+            return ;
+        }
+        currentIndex --;
+        lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    }
+}
 //Click previous
 document.querySelector("#lightbox__previous").addEventListener("click", () => {
-    if(currentIndex == 0) {
-        return ;
-    }
-    currentIndex --;
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    lightboxNavigation("previous");
 });
 //Click next
 document.querySelector("#lightbox__next").addEventListener("click", () => {
-    if(currentIndex == mediaList.length-1){
-        return;
-    }
-    currentIndex ++;    
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    lightboxNavigation("next");
 });
 //Arrow previous
 window.addEventListener("keydown", (event) => {
     if(event.key != "ArrowLeft"){return;}
-    if(currentIndex == 0) {
-        return ;
-    }
-    currentIndex --;
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    lightboxNavigation("previous");
 });
 //Arroow next
 window.addEventListener("keydown", (event) => {
     if(event.key != "ArrowRight"){return;}
-    if(currentIndex == mediaList.length-1){
-        return;
-    }
-    currentIndex ++;    
-    lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    lightboxNavigation("next");
 });
