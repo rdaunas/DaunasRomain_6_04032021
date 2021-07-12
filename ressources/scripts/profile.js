@@ -13,7 +13,7 @@ let photographInfo;
 let photographtags ="";
 let folderName;
 
-//REFACTOR: MOVE LIGHTBOX, REMOVE SETTIMEOUT, MERGE FETCH
+//Close modals on Escape key press
 window.addEventListener("keydown", (event) => {
     if(event.key == "Escape"){
         lightbox.style.display = "none";
@@ -76,9 +76,7 @@ function renderGallery(){
         media.render(gallery, index, photographInfo.name.split(" "));
         index++;
     }
-    //setTimeout(lightboxClick(mediaList,folderName), 50);
-    lightboxClick(mediaList,folderName);
-    
+    lightboxClick(mediaList,folderName);    
 }
 
 function likeTotal() {
