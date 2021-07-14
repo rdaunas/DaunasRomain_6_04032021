@@ -45,7 +45,6 @@ form.addEventListener('submit', (e) => {
 
 function textValidation() {
     let validation = 0;
-    //Validation condition: Name longer than 2 characters
     if(lastName.value.length < 2 || /^[a-zA-Z]+$/.test(lastName.value) == false){
        lastName.style.border = "2px solid red";
        validation += 1;

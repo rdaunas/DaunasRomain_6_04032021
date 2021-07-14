@@ -392,7 +392,7 @@ body {
 }
 .modal__form__input {
   border-radius: 5px;
-  height: 70px;
+  height: 50px;
 }
 @media only screen and (max-width: 600px) {
   .modal__form__input {
@@ -400,13 +400,16 @@ body {
   }
 }
 .modal__form__label {
-  font-size: 2.25rem;
+  font-size: 2rem;
   color: #312E2E;
 }
 @media only screen and (max-width: 600px) {
   .modal__form__label {
     font-size: 1.5rem;
   }
+}
+.modal__form__label--hidden {
+  visibility: hidden;
 }
 .modal__form__submit {
   width: 170px;

@@ -47,16 +47,17 @@
             <input type="email" class="modal__form__input" id="mail" aria-labelledby="labelMail"/>
             <label class="modal__form__label" for="message" id="labelMessage">Votre message</label>
             <input type="text" class="modal__form__input" id="message" aria-labelledby="labelMessage"/>
-            <input type="submit" class="modal__form__submit"/>
+            <label class="modal__form__label--hidden" for="message" id="labelSubmit">Envoie du Formulaire</label>
+            <input type="submit" class="modal__form__submit" id="submit" aria-labelledby="labelSubmit"/>
         </form>
     </section>  
     <section id="lightbox" class="lightbox" aria-label="image closeup viex">
         <div class="lightbox__container">            
-            <button class="lightbox__button" id="lightbox__previous"><i class="fas fa-chevron-left fa-7x "  alt="Previous Image"></i></button>
+            <button class="lightbox__button" id="lightbox__previous"><span class="fas fa-chevron-left fa-7x "  alt="Previous Image"></span></button>
             <div class="lightbox__content">                
             </div>
-            <button class="lightbox__button" id="lightbox__next"><i class="fas fa-chevron-right fa-7x"  alt="Next Image"></i></button>
-            <button class="lightbox__close"><i class="fas fa-times fa-7x" alt="Close Dialog"></i></button>
+            <button class="lightbox__button" id="lightbox__next"><span class="fas fa-chevron-right fa-7x"  alt="Next Image"></span></button>
+            <button class="lightbox__close"><span class="fas fa-times fa-7x" alt="Close Dialog"></span></button>
         </div>
         
     </section>  
