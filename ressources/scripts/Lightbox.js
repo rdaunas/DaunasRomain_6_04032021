@@ -9,10 +9,11 @@ let folderName;
 document.querySelector(".lightbox__close").addEventListener("click", () => {
     lightbox.style.display = "none";
     lightboxContent.innerHTML = "";
+    //move back to element currently viewed
     document.getElementById(currentIndex.toString()).querySelector(".gallery__lightbox-link").focus();
 });
 
-
+//medialist and folder needed to load image
 export function lightboxClick(mediaListImport, folderNameImport) {
     mediaList = mediaListImport;
     folderName = folderNameImport;
@@ -22,7 +23,7 @@ export function lightboxClick(mediaListImport, folderNameImport) {
             lightboxRendering(image);            
         });
         image.addEventListener("keydown", (event) => {
-            if(event.keycode != "13"){return};
+            if(event.keycode != "13"){return}; //listening to ENTER key
             lightboxRendering(image);
             
         });
@@ -32,11 +33,13 @@ function lightboxRendering(image) {
     lightbox.style.display = "block";
     currentIndex = image.id;
     lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
+    //timeout needed for the focus to be moved
     setTimeout ( () => {document.getElementById("lightbox__previous").focus()}, 50);
 }
 
 function lightboxNavigation(direction) {
     if(direction === "next") {
+        //prevent out of bound
         if(currentIndex == mediaList.length-1){
             return;
         }
@@ -44,6 +47,7 @@ function lightboxNavigation(direction) {
         lightboxContent.innerHTML = mediaList[currentIndex].renderLightbox(folderName);
     }
     if(direction === "previous"){
+        //prevent out of bound
         if(currentIndex == 0) {
             return ;
         }
@@ -64,7 +68,7 @@ window.addEventListener("keydown", (event) => {
     if(event.key != "ArrowLeft"){return;}
     lightboxNavigation("previous");
 });
-//Arroow next
+//Arrow next
 window.addEventListener("keydown", (event) => {
     if(event.key != "ArrowRight"){return;}
     lightboxNavigation("next");

@@ -16,7 +16,6 @@ export class Video {
 
     liked() {
         this._like += 1;
-        //rerender like count
     }
     render(parent, index, folderName) {
                 parent.insertAdjacentHTML("beforeend",`

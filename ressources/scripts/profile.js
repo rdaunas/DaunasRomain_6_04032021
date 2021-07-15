@@ -78,7 +78,7 @@ function renderGallery(){
     }
     lightboxClick(mediaList,folderName);    
 }
-
+//count total like of media
 function likeTotal() {
     let totalLikes = 0;
         for(let media of mediaList){
@@ -100,10 +100,13 @@ function like() {
     }
 }
 function renderProfile() {
-    folderName = photographInfo.name.split(" ");        
+    //extract photographer first name  for the photo folder
+    folderName = photographInfo.name.split(" ");
+        //extract photographer's tag and render them        
         for(let tag of photographInfo.tags){
         photographtags += `<a class="filter" href="https://gosugladesh.github.io/DaunasRomain_6_04032021/index.html#${tag}">#${tag}</a>`
         }
+        //render of photopraph profile
         profile.insertAdjacentHTML('afterbegin',
                             ` <div class="card--profile__desc">
                             <h1 class="card__title card__title--profile">${photographInfo.name}</h1>
@@ -114,6 +117,7 @@ function renderProfile() {
                             <button class="button--contact" alt="Contact Me">Contactez-moi</button>
                             <img src="ressources/images/Photographers ID Photos/${photographInfo.portrait}" alt="${photographInfo.name}" class="card__image card__image--profile"/>
                             ` );
+        //set up event listener for the contact modal from modal.js
         modalSetUp();
         document.querySelector(".sticky__tarif").innerHTML = `${photographInfo.price}€ / jours`;
 }
@@ -121,6 +125,7 @@ function renderProfile() {
 fetch("ressources/data/FishEyeData.json")
     .then(response => response.json())  //transforme la reponse en json
     .then(data => {
+        //get photograph from json searching with id passed by url
         photographInfo = data.photographers.find( element => element.id == window.location.search.substring(1));        
         for (let media of data.media){
             if( media.photographerId == window.location.search.substring(1) ){
