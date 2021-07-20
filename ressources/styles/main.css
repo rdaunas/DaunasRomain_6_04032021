@@ -392,7 +392,7 @@ body {
 }
 .modal__form__input {
   border-radius: 5px;
-  height: 50px;
+  height: 40px;
 }
 @media only screen and (max-width: 600px) {
   .modal__form__input {
@@ -416,7 +416,6 @@ body {
   background-color: #901c1c;
   border-radius: 5px;
   border: none;
-  margin-top: 50px;
   color: white;
   font-size: 1.5rem;
   padding: 15px;
@@ -427,6 +426,10 @@ body {
     align-self: center;
     padding: 5px 15px;
   }
+}
+
+#message {
+  height: 120px;
 }
 
 .lightbox {
