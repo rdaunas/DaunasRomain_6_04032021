@@ -104,7 +104,7 @@ function renderProfile() {
     folderName = photographInfo.name.split(" ");
         //extract photographer's tag and render them        
         for(let tag of photographInfo.tags){
-        photographtags += `<a class="filter" href="https://gosugladesh.github.io/DaunasRomain_6_04032021/index.html#${tag}">#${tag}</a>`
+        photographtags += `<a class="filter" href="https://gosugladesh.github.io/DaunasRomain_6_04032021/index.html#${tag}" aria-label="filtre ${tag}">#${tag}</a>`
         }
         //render of photopraph profile
         profile.insertAdjacentHTML('afterbegin',

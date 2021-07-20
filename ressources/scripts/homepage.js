@@ -63,7 +63,7 @@ function listRender() {
         //Extracting tags and prerendering html
         let photographTagRender ="";
         for(let tag of photograph.tags) {
-            photographTagRender +=`<a class="filter" href="#${tag}">#${tag}</a>`;
+            photographTagRender +=`<a class="filter" href="#${tag}" aria-label="filtre ${tag}">#${tag}</a>`;
         }      
         photographContainer.insertAdjacentHTML("beforeend",`
             <div class="card">

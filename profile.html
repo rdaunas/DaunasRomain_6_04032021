@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="main-header__logo" alt="Fisheye Home Page" src="ressources/images/logo.png" /></a>
+        <a href="index.html" aria-label="Page D'accueil"><img class="main-header__logo" alt="Fisheye Home Page" src="ressources/images/logo.png" /></a>
     </header>
     <main>
         <section id="profile" class="card--profile"> 
@@ -37,7 +37,7 @@
     </main>
     <section class="modal" aria-labelledby="contactmeTitle">
         <h2 class="modal__title" id="contactmeTitle">Contactez-moi <br/> Mimi Keel</h2>
-        <button class="modal__close"><i class="fas fa-times" alt="close contact form"></i></button>
+        <button class="modal__close"><i class="fas fa-times" alt="close contact form" aria-label="fermer"></i></button>
         <form class="modal__form">
             <label class="modal__form__label" for="prenom" id="labelPrenom">Prénom</label>
             <input type="text" class="modal__form__input" id="prenom" aria-labelledby="labelPrenom"/>
@@ -53,11 +53,11 @@
     </section>  
     <section id="lightbox" class="lightbox" aria-label="image closeup viex">
         <div class="lightbox__container">            
-            <button class="lightbox__button" id="lightbox__previous"><span class="fas fa-chevron-left fa-7x "  alt="Previous Image"></span></button>
+            <button class="lightbox__button" id="lightbox__previous" aria-label="precedent"><span class="fas fa-chevron-left fa-7x "  alt="Previous Image"></span></button>
             <div class="lightbox__content">                
             </div>
-            <button class="lightbox__button" id="lightbox__next"><span class="fas fa-chevron-right fa-7x"  alt="Next Image"></span></button>
-            <button class="lightbox__close"><span class="fas fa-times fa-7x" alt="Close Dialog"></span></button>
+            <button class="lightbox__button" id="lightbox__next" aria-label="suivant"><span class="fas fa-chevron-right fa-7x"  alt="Next Image"></span></button>
+            <button class="lightbox__close" aria-label="fermer"><span class="fas fa-times fa-7x" alt="Close Dialog"></span></button>
         </div>
         
     </section>  
