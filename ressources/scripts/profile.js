@@ -85,7 +85,7 @@ function likeTotal() {
             totalLikes += media._like;
         }
         document.querySelector(".like-number").innerHTML = totalLikes;
-};
+}
 //Like feature
 function like() {
     let likeButtons = document.querySelectorAll(".like-button");

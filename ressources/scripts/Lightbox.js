@@ -23,12 +23,12 @@ export function lightboxClick(mediaListImport, folderNameImport) {
             lightboxRendering(image);            
         });
         image.addEventListener("keydown", (event) => {
-            if(event.keycode != "13"){return}; //listening to ENTER key
+            if(event.keycode != "13"){return} //listening to ENTER key
             lightboxRendering(image);
             
         });
     }
-};
+}
 function lightboxRendering(image) {
     lightbox.style.display = "block";
     currentIndex = image.id;
