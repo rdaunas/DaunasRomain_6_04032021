@@ -19,7 +19,7 @@
         </section>
         <section id="trier">
             <label for="image-filter" id="FilterLabel">Trier par</label>
-            <select id=image-filter class="dropdown" alt="Order by" aria-labelledby="FilterLabel">
+            <select id=image-filter class="dropdown" aria-labelledby="FilterLabel">
                 <option value="">Filtres</option>
                 <option value="popularity">Popularité</option>
                 <option value="date">Date</option>
@@ -37,7 +37,7 @@
     </main>
     <section class="modal" aria-labelledby="contactmeTitle">
         <h2 class="modal__title" id="contactmeTitle">Contactez-moi <br/> Mimi Keel</h2>
-        <button class="modal__close"><span class="fas fa-times" alt="close contact form" aria-label="fermer"></span></button>
+        <button class="modal__close"><span class="fas fa-times" aria-label="close contact form" aria-label="fermer"></span></button>
         <form class="modal__form">
             <label class="modal__form__label" for="prenom" id="labelPrenom">Prénom</label>
             <input type="text" class="modal__form__input" id="prenom" aria-labelledby="labelPrenom"/>
@@ -47,17 +47,17 @@
             <input type="email" class="modal__form__input" id="mail" aria-labelledby="labelMail"/>
             <label class="modal__form__label" for="message" id="labelMessage">Votre message</label>
             <input type="text" class="modal__form__input" id="message" aria-labelledby="labelMessage"/>
-            <label class="modal__form__label--hidden" for="submit" id="labelMessage">Envoie du message</label>
+            <label class="modal__form__label--hidden" for="submit" id="labelSubmit">Envoie du message</label>
             <input type="submit" class="modal__form__submit" id="submit" aria-label="Envoie du Message"/>
         </form>
     </section>  
     <section id="lightbox" class="lightbox" aria-label="image closeup viex">
         <div class="lightbox__container">            
-            <button class="lightbox__button" id="lightbox__previous" aria-label="precedent"><span class="fas fa-chevron-left fa-7x "  alt="Previous Image"></span></button>
+            <button class="lightbox__button" id="lightbox__previous" aria-label="precedent"><span class="fas fa-chevron-left fa-7x "  aria-label="Previous Image"></span></button>
             <div class="lightbox__content">                
             </div>
-            <button class="lightbox__button" id="lightbox__next" aria-label="suivant"><span class="fas fa-chevron-right fa-7x"  alt="Next Image"></span></button>
-            <button class="lightbox__close" aria-label="fermer"><span class="fas fa-times fa-7x" alt="Close Dialog"></span></button>
+            <button class="lightbox__button" id="lightbox__next" aria-label="suivant"><span class="fas fa-chevron-right fa-7x"  aria-label="Next Image"></span></button>
+            <button class="lightbox__close" aria-label="fermer"><span class="fas fa-times fa-7x" aria-label="Close Dialog"></span></button>
         </div>
         
     </section>  
