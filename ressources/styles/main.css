@@ -409,7 +409,7 @@ body {
   }
 }
 .modal__form__label--hidden {
-  visibility: hidden;
+  opacity: 0;
 }
 .modal__form__submit {
   width: 170px;
